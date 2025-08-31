@@ -1,0 +1,79 @@
+o<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Reminder AI - Client Data</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="client-form">
+            <h1>Client Information</h1>
+            <p>Enter client details for EMI reminder call</p>
+            
+            <form id="clientForm">
+                <div class="form-group">
+                    <label for="clientName">Client Name:</label>
+                    <input type="text" id="clientName" name="clientName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number:</label>
+                    <input type="tel" id="mobileNumber" name="mobileNumber" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="totalDue">Total Due Amount (₹):</label>
+                    <input type="number" id="totalDue" name="totalDue" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="emiAmount">EMI Amount (₹):</label>
+                    <input type="number" id="emiAmount" name="emiAmount" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dueDate">Due Date:</label>
+                    <input type="date" id="dueDate" name="dueDate" required>
+                </div>
+                
+                <button type="submit" class="btn-primary" id="startCallBtn">Start AI Call</button>
+            </form>
+            
+            <div class="audio-interface" id="audioInterface">
+                <div class="status-indicator">
+                    <span class="status-dot status-idle" id="statusDot"></span>
+                    <span id="statusText">Ready to start</span>
+                </div>
+                
+                <div class="audio-controls">
+                    <button class="btn-audio btn-start" id="startBtn">Start Listening</button>
+                    <button class="btn-audio btn-stop" id="stopBtn" disabled>Stop</button>
+                    <button class="btn-audio" id="testMicBtn" style="background: #17a2b8; color: white;">Test Microphone</button>
+                </div>
+                
+                <div class="conversation-log" id="conversationLog">
+                    <div class="message ai">
+                        <div>AI will start the conversation here...</div>
+                        <div class="message-time" id="currentTime"></div>
+                    </div>
+                </div>
+                
+                <div class="error-message" id="errorMessage"></div>
+                <div class="success-message" id="successMessage"></div>
+            </div>
+            
+            <div style="margin-top: 20px; text-align: center;">
+                <button onclick="logout()" style="background: none; border: none; color: #666; text-decoration: underline; cursor: pointer;">Logout</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- AWS SDK for Lex integration -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1490.0.min.js"></script>
+    
+    <script src="config.js"></script>
+    <script src="client-form.js"></script>
+</body>
+</html>
