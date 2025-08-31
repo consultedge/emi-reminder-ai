@@ -1,0 +1,36 @@
+{
+  "name": "emi-reminder-ai-backend",
+  "version": "1.0.0",
+  "description": "Backend API for EMI Reminder AI system with AWS AI integration and LLM enhancement",
+  "main": "lambda.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "deploy": "serverless deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1490.0",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "uuid": "^9.0.0",
+    "serverless-http": "^3.2.0",
+    "nodemon": "^3.0.1",
+    "serverless": "^3.38.0",
+    "serverless-offline": "^13.3.0"
+  },
+  "keywords": ["emi", "ai", "voice", "reminder", "aws", "polly", "lex", "comprehend", "transcribe", "bedrock", "llm", "openai"],
+  "author": "EMI Reminder AI Team",
+  "license": "MIT",
+  "environment": {
+    "AWS_REGION": "ap-southeast-1",
+    "LEX_BOT_NAME": "EMIReminderBot",
+    "LEX_BOT_ALIAS": "PROD",
+    "BEDROCK_MODEL_ID": "anthropic.claude-3-sonnet-20240229-v1:0",
+    "OPENAI_MODEL": "gpt-3.5-turbo"
+  }
+}
